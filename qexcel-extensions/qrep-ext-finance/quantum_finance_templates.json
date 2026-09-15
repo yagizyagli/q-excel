@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org",
+  "template_name": "Quantum Asset Portfolio Allocation & Risk Optimization Model",
+  "template_version": "1.0.0",
+  "target_industry": "Investment Banking & Quantitative Risk Management",
+  "supported_frameworks": ["Microsoft Power BI", "Excel Advanced Analytics Suite"],
+  "quantum_mappings": {
+    "VQE_OPTIMIZE": {
+      "industrial_use_case": "Mean-Variance Portfolio Optimization (Markowitz Frontier Calculation)",
+      "input_parameters": {
+        "cell_range": "Target historical return arrays (e.g., B2:D100)",
+        "risk_tolerance": "Float boundary tracking user risk aversion index (0.0 to 1.0)"
+      },
+      "telemetry_metrics_output": {
+        "optimal_energy_state": {
+          "financial_equivalent": "Minimum Portfolio Variance Ground State",
+          "data_type": "Float64"
+        },
+        "convergence_iterations": {
+          "financial_equivalent": "Optimization Execution Step Depth",
+          "data_type": "Int32"
+        }
+      },
+      "derived_financial_indicators": {
+        "sharpe_ratio_estimation": "=(-1 * optimal_energy_state) / CALCULATE_PORTFOLIO_VOLATILITY()",
+        "optimal_weight_distribution": "Map quantum state amplitudes directly to asset capital allocation percentages"
+      }
+    },
+    "QAOA_SOLVE": {
+      "industrial_use_case": "Combinatorial Arbitrage Detection & High-Frequency Multi-Currency Routing",
+      "input_parameters": {
+        "cell_range": "Live liquidity pool spreads and transaction fee arrays"
+      },
+      "telemetry_metrics_output": {
+        "approximation_ratio": {
+          "financial_equivalent": "Algorithmic Arbitrage Efficiency Yield vs Ideal Bounds",
+          "data_type": "Float64"
+        },
+        "optimized_cost_index": {
+          "financial_equivalent": "Minimized Transaction Execution Drag Metric",
+          "data_type": "Float64"
+        }
+      }
+    }
+  },
+  "powerbi_theme_integration": {
+    "visual_styles": {
+      "quantum_cell_active": "#14b8a6",
+      "quantum_telemetry_hud": "#06b6d4",
+      "risk_critical_alert": "#ef4444"
+    }
+  }
+}
