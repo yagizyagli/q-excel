@@ -108,9 +108,9 @@ Distributed under the **Apache License 2.0**. This enterprise-ready license prot
 
 ---
 
-## 👤 Author
+## 👤 Author & Developer
 
-*   **Yağız Yağlı: (@yagizyagli)[https://github.com/yagizyagli] 
+*   **Yağız Yağlı**: [@yagizyagli](https://github.com/yagizyagli)
 
 ---
 <p align="center">Built with 🦀 Rust, ⚡ WebAssembly, and 🪐 Quantum Passion.</p>
