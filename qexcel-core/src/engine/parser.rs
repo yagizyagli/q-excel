@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 
-/// Supported quantum formula types in the q-excel architecture.
+/// Supported industrial and theoretical quantum formula types in the q-excel architecture.
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub enum QuantumFormulaType {
     /// Simulates a basic quantum state or circuit execution (=QUANTUM_SIM)
@@ -9,6 +9,12 @@ pub enum QuantumFormulaType {
     GroverSearch,
     /// Calculates quantum factoring or cryptographic security levels (=SHOR_FACTOR)
     ShorFactor,
+    /// Optimizes financial portfolios and linear allocation models (=VQE_OPTIMIZE)
+    VqeOptimize,
+    /// Solves complex combinatorial logistics and routing problems (=QAOA_SOLVE)
+    QaoaSolve,
+    /// Runs quantum machine learning classification over data clusters (=QML_CLASSIFY)
+    QmlClassify,
     /// Fallback for standard or unrecognized text/formulas
     Unknown,
 }
@@ -23,8 +29,8 @@ pub struct ParsedQuantumFormula {
 }
 
 impl ParsedQuantumFormula {
-    /// Parses a raw formula string typed directly into a q-excel cell grid.
-    /// Example input: "=GROVER_SEARCH(A1:A100, \"target\")"
+    /// Parses an industrial quantum formula string typed directly into a q-excel cell grid.
+    /// Example input: "=VQE_OPTIMIZE(B1:B50, \"low_risk\")"
     pub fn parse_raw_input(input: &str) -> Self {
         let trimmed = input.trim();
         
@@ -35,7 +41,7 @@ impl ParsedQuantumFormula {
             };
         }
 
-        // Extract formula name and argument tokens
+        // Extract formula name and argument tokens via high-performance string slicing
         if let Some(open_paren) = trimmed.find('(') {
             if let Some(close_paren) = trimmed.rfind(')') {
                 let formula_name = &trimmed[1..open_paren].to_uppercase();
@@ -51,6 +57,9 @@ impl ParsedQuantumFormula {
                     "QUANTUM_SIM" => QuantumFormulaType::QuantumSim,
                     "GROVER_SEARCH" => QuantumFormulaType::GroverSearch,
                     "SHOR_FACTOR" => QuantumFormulaType::ShorFactor,
+                    "VQE_OPTIMIZE" => QuantumFormulaType::VqeOptimize,
+                    "QAOA_SOLVE" => QuantumFormulaType::QaoaSolve,
+                    "QML_CLASSIFY" => QuantumFormulaType::QmlClassify,
                     _ => QuantumFormulaType::Unknown,
                 };
 
