@@ -1,0 +1,24 @@
+[package]
+name = "q-excel-ts-binding"
+version = "0.1.0"
+edition = "2021"
+authors = ["Yağız Yağlı <yagizyagli3447@gmail.com>"]
+description = "TypeScript WebAssembly bridge binding layer compiled for the q-excel client application."
+license = "Apache-2.0"
+
+[lib]
+# Forces the crate to compile as a dynamic WebAssembly system library link target
+crate-type = ["cdylib"]
+
+[dependencies]
+# Pull inside our core computation logic directly from the workspace relative paths
+q-excel-core = { path = "../../qexcel-core" }
+
+# High-speed JS interop binding structures
+wasm-bindgen = "0.2.92"
+
+[profile.release]
+# Aggressive browser-level size crunching optimizations
+opt-level = "z"
+lto = true
+codegen-units = 1
