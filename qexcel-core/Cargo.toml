@@ -1,0 +1,29 @@
+[package]
+name = "q-excel-core"
+version = "0.1.0"
+edition = "2021"
+authors = ["Yağız Yağlı <yagizyagli3447@gmail.com>"]
+description = "Ultra-fast, light quantum spreadsheet engine powered by Rust and WebAssembly."
+license = "Apache-2.0"
+
+[lib]
+# Configures the crate to compile as both a WebAssembly binary (cdylib) and a standard Rust library (rlib).
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# High-performance WASM binder interface layer
+wasm-bindgen = "0.2.92"
+
+# Linear algebra and multi-dimensional matrix operations optimized for zero-dependency memory efficiency
+nalgebra = { version = "0.33.0", default-features = false, features = ["alloc"] }
+
+# Lightning-fast serialization/deserialization framework for transferring data into Python/TypeScript
+serde = { version = "1.0.200", features = ["derive"] }
+serde_json = "1.0.116"
+
+[profile.release]
+# Ultimate optimizations to maximize computing speed while drastically minimizing WebAssembly binary size
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
